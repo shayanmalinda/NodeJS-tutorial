@@ -2,7 +2,7 @@
 // const _ = require("lodash");
 
 var note = {
-  name: "shayan"
+  name: "shayan",
 };
 
 note.name = "shayan";
