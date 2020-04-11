@@ -24,4 +24,5 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp", (err, db) => {
   //deleteOne
 
   //findOneAndDelete
+  // return the document
 });
