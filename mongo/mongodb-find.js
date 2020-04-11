@@ -8,12 +8,11 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp", (err, db) => {
   console.log("Connected to MongoDB Server");
 
   db.collection("Todos")
-    .find({ completed: true })
-    .toArray()
+    .find()
+    .count()
     .then(
-      (docs) => {
-        console.log("Todos");
-        console.log(JSON.stringify(docs, undefined, 2));
+      (count) => {
+        console.log(count);
       },
       (err) => {
         console.log("Unable to fetch data", err);
