@@ -8,16 +8,29 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp", (err, db) => {
   console.log("Connected to MongoDB Server");
 
   db.collection("Todos")
-    .find()
-    .count()
+    .find({ completed: true })
+    .toArray()
     .then(
-      (count) => {
-        console.log(count);
+      (docs) => {
+        console.log("Todos");
+        console.log(JSON.stringify(docs, undefined, 2));
       },
       (err) => {
         console.log("Unable to fetch data", err);
       }
     );
+
+  // db.collection("Todos")
+  // .find()
+  // .count()
+  // .then(
+  //   (count) => {
+  //     console.log(count);
+  //   },
+  //   (err) => {
+  //     console.log("Unable to fetch data", err);
+  //   }
+  // );
 
   db.close();
 });
